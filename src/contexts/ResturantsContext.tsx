@@ -30,8 +30,8 @@ export const ResturantProvider: FC<{ children: ReactNode }> = ({
 }) => {
   const { fetchResutrants } = useAuthentication();
   const [reqLoading, setReqLoading] = useState(false);
-  const [resturantData, setResturnatData] = useState<RestaurantData | null>(
-    null,
+  const [resturantData, setResturnatData] = useState<any>(
+    []
   );
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export const ResturantProvider: FC<{ children: ReactNode }> = ({
   return (
     <ResturantContext.Provider
       value={{
-        resturantData,
+         resturantData: resturantData || [],
         resurantsLength: 0,
         reqLoading,
       }}
